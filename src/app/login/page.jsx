@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
+import styles from './login.module.css'
 
 export default function AuthForm() {
   const [email, setEmail] = useState('')
@@ -14,7 +15,7 @@ export default function AuthForm() {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div id={styles.background} className="flex justify-center items-center min-h-screen">
       <form
         onSubmit={handleSubmit}
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-sm"

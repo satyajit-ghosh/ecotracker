@@ -1,8 +1,10 @@
 import Image from "next/image";
-import Login from "./pages/login/login";
+import Login from "./login/page.jsx";
 
 export default function Home() {
   return (
-    <h1>hello</h1>
+    <>
+    <Login/>
+   </>
   );
 }

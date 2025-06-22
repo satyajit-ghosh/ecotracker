@@ -1,8 +1,8 @@
 import Link from "next/link";
-
+import styles from './register.module.css'
 export default function RegisterPage() {
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div id = {styles.background} className="min-h-screen flex items-center justify-center bg-gray-100">
             <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
                 <h2 className="text-2xl font-bold mb-6 text-center text-green-700">Create an Account</h2>
                 <form className="space-y-5">
