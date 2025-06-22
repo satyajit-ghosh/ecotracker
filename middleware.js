@@ -1,11 +1,21 @@
 import { NextResponse } from 'next/server'
- 
-// This function can be marked `async` if using `await` inside
+
+// Middleware function to protect certain routes
 export function middleware(request) {
-  return NextResponse.redirect(new URL('/login', request.url))
+  // Read the 'accessToken' from cookies
+  const token = request.cookies.get('accessToken')?.value
+
+  // If no token, redirect to login
+  if (!token) {
+    const loginUrl = new URL('/login', request.url)
+    return NextResponse.redirect(loginUrl)
+  }
+
+  // Token exists, allow request to continue
+  return NextResponse.next()
 }
- 
-// See "Matching Paths" below to learn more
+
+// Protect routes under /dashboard
 export const config = {
-  matcher: '/dashboard/:path*',
+  matcher: ['/dashboard/:path*'],
 }
